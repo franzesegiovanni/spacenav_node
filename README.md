@@ -1,4 +1,39 @@
-# Spacenav Nodes #
+# Spacenav Nodes for Bimanual Manipulation#
+
+### Running the spacenav_node ###
+You cannot run the nodes left and right on the same computer. You need to install this on two different computers that are connected to the ros network. Then you run the two different launch on the two different machines. 
+
+## Install the spacenav 
+```
+sudo apt install spacenavd
+```
+
+## Clone this repository in your catkin workspace
+```
+git clone https://github.com/franzesegiovanni/spacenav_node_bimanual.git
+```
+## Build your repository
+```
+catkin_make
+```
+Running the node is straightforward
+```
+roslaunch spacenav_node_bimanual right.launch
+```
+```
+roslaunch spacenav_node_bimanual left.launch
+```
+The node is now publishing to the topics listed above.
+#### Examples ####
+Viewing the output from the spacenav can be done as follows:
+```
+$ rostopic echo /spacenav_left/joy
+```
+```
+$ rostopic echo /spacenav_right/joy
+```
+
+
 ## spacenav_node
 ##### Published topics
 * `spacenav/offset` (geometry_msgs/Vector3) 
@@ -43,29 +78,10 @@ The `linear_scale` and `angular_scale` parameters take vector arguements.
 The easiest way to set these parameters is with a launch file like so:
 ```
 <launch>
-  <node pkg="spacenav_node" type="spacenav_node" name="$(anon spacenav_node)" output="screen">
+  <node pkg="spacenav_node_bimanual" type="spacenav_node_right" name="$(anon spacenav_node_right)" output="screen">
     <rosparam param="linear_scale">[.25, .25, .25]</rosparam>
     <rosparam param="angular_scale">[.5, .5, .5]</rosparam>
   </node>
 </launch>
-```
-
-### Running the spacenav_node ###
-
-Running the node is straightforward
-```
-roslaunch spacenav_node_bimanual right.launch
-```
-```
-roslaunch spacenav_node_bimanual left.launch
-```
-The node is now publishing to the topics listed above.
-#### Examples ####
-Viewing the output from the spacenav can be done as follows:
-```
-$ rostopic echo /spacenav_left/joy
-```
-```
-$ rostopic echo /spacenav_right/joy
 ```
 
