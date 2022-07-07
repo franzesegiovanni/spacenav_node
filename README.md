@@ -1,4 +1,4 @@
-# Spacenav Nodes for Bimanual Manipulation#
+# Spacenav Nodes for Bimanual Manipulation
 
 ### Running the spacenav_node ###
 You cannot run the nodes left and right on the same computer. You need to install this on two different computers that are connected to the ros network. Then you run the two different launch on the two different machines. 
@@ -6,7 +6,9 @@ You cannot run the nodes left and right on the same computer. You need to instal
 ## Install the spacenav 
 ```
 sudo apt install spacenavd
+sudo apt install ros-indigo-spacenav-node
 ```
+# Restart your computer!
 
 ## Clone this repository in your catkin workspace
 ```
